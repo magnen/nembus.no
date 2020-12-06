@@ -43,7 +43,7 @@ header {
 
 .hero-text-box {
     position: absolute;
-    width: 1140px;
+    width: 70%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -72,8 +72,35 @@ footer {
 footer .content{
     position:absolute;
     bottom: 0;
-    background-color: rgba(220,220,220,0.8);
-    height: 50px;
-    content: " ";
+    background-color: rgba(220,220,220,0.5);
     width: 100%;
+    display:flex;
+    justify-content: space-around;
+    font-size: 75%;
+    padding: 3px 0
 }
+
+footer .footer-contact{
+    display: flex;
+    align-content: center;
+}
+footer .footer-copyright{
+    display: flex;
+    align-content: center;
+}
+footer .material-icons {
+    font-size: inherit;
+    align-self: center;
+}
+.footer-contact a{
+    display: flex;
+    align-content: center;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
