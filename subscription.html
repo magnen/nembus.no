@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nembus Consulting Subscription</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="subscription-page">
+<header class="subscription-header">
+    <div class="hero-text-box card">
+        <div class="card-header">
+            <h1>Subscription</h1>
+        </div>
+        <div class="card-text">
+            <p>[Add a short description of the subscription and how quantity affects pricing.]</p>
+            <div class="subscription">
+                <label for="subscription-quantity">Subscription quantity</label>
+                <input id="subscription-quantity" type="number" min="1" max="10" value="1">
+                <div id="paypal-button-container-P-8JF44328SR1847130NFW7AOI"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<footer>
+<div class="content">
+    <div class="footer-contact">Contact us: <a href="mailto:post@nembus.no"><i class="material-icons">mail_outline</i></a></div>
+    <div class="footer-copyright"><i class="material-icons">copyright</i> copyright Nembus Consulting 2020</div>
+</div>
+</footer>
+<script src="https://www.paypal.com/sdk/js?client-id=Afmq7jKfNPEzerNlLPKgNs3ovyaxrhbsPvR-VhQ3ARqKigDvIN91dGeI8tDaVwf8sjh5GyA0yDZ7mpQs&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  const quantityInput = document.getElementById('subscription-quantity');
+
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        const quantity = Math.max(1, Number.parseInt(quantityInput.value, 10) || 1);
+        quantityInput.value = quantity;
+        const now = new Date();
+        const startOfMonth = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1, 0, 0, 0));
+        return actions.subscription.create({
+          plan_id: 'P-8JF44328SR1847130NFW7AOI',
+          quantity: String(quantity),
+          start_time: startOfMonth.toISOString()
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container-P-8JF44328SR1847130NFW7AOI');
+</script>
+</body>
+</html>

@@ -41,6 +41,18 @@ header {
     height: 100vh;
 }
 
+.subscription-header {
+    background-image:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+}
+
+.subscription-page {
+    background-color: #f7f7f7;
+}
+
 .hero-text-box {
     position: absolute;
     width: 70%;
@@ -52,6 +64,25 @@ header {
 .card {
     background-color: rgba(220,220,220,0.8);
     padding: 10px;
+}
+.subscription {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.subscription label {
+    font-weight: 400;
+}
+
+.subscription input {
+    width: 140px;
+    padding: 6px 8px;
+    border: 1px solid rgba(85, 85, 85, 0.4);
+    border-radius: 6px;
+    font-size: 16px;
 }
 .card .card-header{
     margin-left: 20px;
@@ -103,4 +134,3 @@ a:active {
     text-decoration: none;
     color: inherit;
 }
-
